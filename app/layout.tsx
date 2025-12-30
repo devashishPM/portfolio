@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import { LenisScroller } from "@/components/smooth-scroll";
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-plus-jakarta",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const newsreader = Newsreader({
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${newsreader.variable} font-sans antialiased text-charcoal bg-alabaster`}
+        className={`${plusJakarta.variable} ${newsreader.variable} font-sans antialiased text-charcoal bg-alabaster`}
       >
         <LenisScroller />
         {children}

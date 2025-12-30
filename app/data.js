@@ -62,40 +62,25 @@ export const projects = [
         }
     },
     {
-        id: 4,
-        title: "Intelligence Search",
-        role: "Contify",
-        category: "Scale • 5K DAUs • 2.3x Usage",
-        description: "Scaled enterprise search to 5K DAUs with 2.3x search volume growth. Built the LLM pipeline that surfaced key business drivers, fueling +18% upsell revenue.",
-        visualType: "search-focus"
-    },
-    {
-        id: 5,
-        title: "Text-to-Boolean Search",
-        role: "Contify",
-        category: "RAG + LLM • NPS -5 → +31",
-        description: "Transformed complex boolean search into natural language queries using RAG + LLM. Drove NPS from -5 to +31, dramatically improving user satisfaction.",
-        visualType: "search-focus",
-        hasCaseStudy: true,
-        caseStudy: {
-            problem: "Contify's Advanced Search relied on complex boolean operators that most users couldn't master. Power users loved it, but the majority struggled—resulting in an NPS score of -5 for the feature. This was a major barrier to customer retention.",
-            solution: "I spearheaded Text-to-Boolean Search using a RAG approach with an LLM and our Advanced Search Knowledge Base. Users type natural language queries like 'show me articles about Tesla from last week excluding earnings reports,' and the system translates it into precise boolean syntax. The LLM understands intent; the knowledge base ensures accuracy.",
-            impact: [
-                "NPS score jumped from -5 to +31",
-                "Dramatically improved user satisfaction with search",
-                "Contributed directly to customer retention metrics",
-                "Made power-user features accessible to everyone"
-            ],
-            techStack: ["RAG", "LLM", "Advanced Search Knowledge Base", "Boolean query generation"]
-        }
-    },
-    {
         id: 6,
         title: "LLM Insights Engine",
         role: "Contify",
-        category: "GenAI • 8% Retention • 5% Upsell",
-        description: "Built LLM-powered workflows to categorize qualitative data and generate actionable insights. Launched RAG chatbot for direct answers. Drove 8% retention lift and 5% upsell.",
-        visualType: "chat-stream"
+        category: "GenAI • 85% Adoption • 8% Retention Lift",
+        description: "Built Knowledge Graph + LLM system to extract insights from millions of news articles. Launched Ask Athena, a RAG chatbot for instant answers. 85% customer adoption, 8% retention lift, 5% upsell.",
+        visualType: "chat-stream",
+        isFeatured: true,
+        hasCaseStudy: true,
+        caseStudy: {
+            problem: "Enterprise customers were spending hours manually reading articles to extract competitive intelligence. They demanded faster summaries and answers, but the team couldn't deliver at scale. Generic AI tools like ChatGPT hallucinated and fabricated sources—unusable for enterprise intelligence where accuracy is non-negotiable.",
+            solution: "I led the vision and launch of Contify Insights, later evolving into Athena—an Agentic AI insights engine. Built a Knowledge Graph mapping relationships between companies, topics, and 30+ business event types (which I defined based on customer research). Orchestrated a multi-model LLM strategy using GPT and Claude families for different tasks. Launched 'Ask Athena,' a RAG chatbot querying both the customer's curated newsfeed and the Knowledge Graph, delivering grounded, hallucination-free answers. Led a team of 20+ engineers and designers, and partnered with GTM for launch.",
+            impact: [
+                "85% of customers actively using Insights within 6 months of launch",
+                "8% retention lift in the first 6 months post-launch",
+                "5% upsell revenue from customers upgrading to access Insights/Athena",
+                "Defined 30+ business event types powering automated extraction"
+            ],
+            techStack: ["Knowledge Graphs", "GPT-4", "Claude", "RAG pipeline", "Multi-model LLM orchestration", "Agentic workflows"]
+        }
     },
     {
         id: 7,
@@ -117,14 +102,6 @@ export const projects = [
             techStack: ["MVP definition", "UX design", "Enterprise SaaS", "GTM strategy"]
         }
     },
-    {
-        id: 8,
-        title: "CRM Personalization",
-        role: "Analec",
-        category: "NPS 20s → 60s • +18% Usage",
-        description: "Launched email personalization features for diverse cultural backgrounds. NPS jumped from 20s to 60s, with 18% increase in outbound email usage.",
-        visualType: "neural-layers"
-    }
 ];
 
 // TIER 2: The History (Clean Archive List)

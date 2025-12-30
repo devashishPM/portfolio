@@ -12,10 +12,10 @@ export function Hero() {
                 className="max-w-4xl"
             >
                 <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.15] md:leading-[1.1] text-charcoal">
-                    From optimizing chemical reactors to architecting AI platforms—I&apos;ve spent
+                    From optimizing chemical reactors to architecting AI platforms - I&apos;ve spent
                     a decade turning messy inputs into scalable value. Currently building the
-                    brain behind Level AI: Voice of Customer engines, agentic RAG systems, and
-                    zero-trust security layers that process millions of conversations.
+                    brain behind Level AI: Conversation Intelligence, Voice of Customer, agentic RAG systems, and
+                    7 Core AI Models that process millions of conversations.
                 </p>
             </motion.div>
         </section>
