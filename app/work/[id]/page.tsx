@@ -3,6 +3,8 @@ import { Footer } from "@/components/ui/footer";
 import { projects } from "@/app/data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { AIModelPipeline } from "@/components/work/AIModelPipeline";
+import { VoCPipeline } from "@/components/work/VoCPipeline";
 
 interface CaseStudy {
     problem: string;
@@ -20,6 +22,8 @@ interface Project {
     visualType: string;
     isFeatured?: boolean;
     hasCaseStudy?: boolean;
+    hasInteractivePipeline?: boolean;
+    hasVoCPipeline?: boolean;
     caseStudy?: CaseStudy;
 }
 
@@ -47,7 +51,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                 </div>
 
                 {/* Header */}
-                <div className="mb-12">
+                    <div className="mb-12">
                     <span className="text-sm font-sans font-medium text-soft-gray uppercase tracking-widest mb-4 block">
                         {project.role}
                     </span>
@@ -68,6 +72,24 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                                 {project.description}
                             </p>
                         </div>
+
+                        {/* Interactive Pipeline for Core AI Platform */}
+                        {project.hasInteractivePipeline && (
+                            <div>
+                                <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
+                                    The AI Stack
+                                </h2>
+                                <p className="text-lg font-sans leading-relaxed text-charcoal mb-8">
+                                    Click on any model to explore the problem it solves, my role, and the technical approach.
+                                </p>
+                                <AIModelPipeline />
+                            </div>
+                        )}
+
+                        {/* Interactive Pipeline for Voice of Customer */}
+                        {(project as Project & { hasVoCPipeline?: boolean }).hasVoCPipeline && (
+                            <VoCPipeline />
+                        )}
 
                         {/* Problem */}
                         <div>
