@@ -6,6 +6,18 @@ import Link from "next/link";
 import { AIModelPipeline } from "@/components/work/AIModelPipeline";
 import { VoCPipeline } from "@/components/work/VoCPipeline";
 
+// Helper to split text into sentences and render with spacing
+function renderSentences(text: string) {
+    // Split by period followed by space (preserves periods in abbreviations)
+    const sentences = text.split(/(?<=\.)\s+/).filter(s => s.trim());
+    
+    return sentences.map((sentence, index) => (
+        <span key={index} className="block mb-3 last:mb-0">
+            {sentence}
+        </span>
+    ));
+}
+
 interface CaseStudy {
     problem: string;
     solution: string;
@@ -52,13 +64,13 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
                 {/* Header */}
                     <div className="mb-12">
-                    <span className="text-sm font-sans font-medium text-soft-gray uppercase tracking-widest mb-4 block">
-                        {project.role}
+                    <span className="text-sm font-sans font-semibold uppercase tracking-widest mb-4 block">
+                        <span className="highlight">{project.role}</span>
                     </span>
                     <h1 className="text-5xl md:text-7xl font-serif text-charcoal mb-4">
                         {project.title}
                     </h1>
-                    <p className="text-xl font-sans text-soft-gray">
+                    <p className="text-xl font-sans text-soft-gray font-medium">
                         {project.category}
                     </p>
                 </div>
@@ -76,8 +88,8 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                         {/* Interactive Pipeline for Core AI Platform */}
                         {project.hasInteractivePipeline && (
                             <div>
-                                <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
-                                    The AI Stack
+                                <h2 className="text-sm font-sans uppercase tracking-widest mb-6">
+                                    <span className="highlight-title">The AI Stack</span>
                                 </h2>
                                 <p className="text-lg font-sans leading-relaxed text-charcoal mb-8">
                                     Click on any model to explore the problem it solves, my role, and the technical approach.
@@ -93,28 +105,28 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
                         {/* Problem */}
                         <div>
-                            <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
-                                The Problem
+                            <h2 className="text-sm font-sans uppercase tracking-widest mb-6">
+                                <span className="highlight-title">The Problem</span>
                             </h2>
-                            <p className="text-lg font-sans leading-relaxed text-charcoal">
-                                {project.caseStudy!.problem}
-                            </p>
+                            <div className="text-lg font-sans leading-relaxed text-charcoal">
+                                {renderSentences(project.caseStudy!.problem)}
+                            </div>
                         </div>
 
                         {/* Solution */}
                         <div>
-                            <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
-                                The Solution
+                            <h2 className="text-sm font-sans uppercase tracking-widest mb-6">
+                                <span className="highlight-title">The Solution</span>
                             </h2>
-                            <p className="text-lg font-sans leading-relaxed text-charcoal">
-                                {project.caseStudy!.solution}
-                            </p>
+                            <div className="text-lg font-sans leading-relaxed text-charcoal">
+                                {renderSentences(project.caseStudy!.solution)}
+                            </div>
                         </div>
 
                         {/* Impact */}
                         <div>
-                            <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
-                                Impact
+                            <h2 className="text-sm font-sans uppercase tracking-widest mb-6">
+                                <span className="highlight-title">Impact</span>
                             </h2>
                             <ul className="space-y-4">
                                 {project.caseStudy!.impact.map((item: string, index: number) => (
@@ -122,7 +134,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                                         key={index}
                                         className="flex items-start gap-4 text-lg font-sans text-charcoal"
                                     >
-                                        <span className="text-soft-gray font-serif italic">0{index + 1}</span>
+                                        <span className="highlight-metric font-serif italic">0{index + 1}</span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -131,14 +143,14 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
                         {/* Tech Stack */}
                         <div>
-                            <h2 className="text-sm font-sans font-bold uppercase tracking-widest mb-6 text-soft-gray">
-                                Tech & Methods
+                            <h2 className="text-sm font-sans uppercase tracking-widest mb-6">
+                                <span className="highlight-title">Tech & Methods</span>
                             </h2>
                             <div className="flex flex-wrap gap-3">
                                 {project.caseStudy!.techStack.map((tech: string, index: number) => (
                                     <span 
                                         key={index}
-                                        className="px-4 py-2 bg-charcoal/5 text-charcoal font-sans text-sm rounded-full"
+                                        className="px-4 py-2 bg-charcoal/10 text-charcoal font-sans text-sm font-semibold rounded-full"
                                     >
                                         {tech}
                                     </span>
@@ -167,8 +179,8 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
                 {/* Navigation to other projects */}
                 <div className="mt-24 pt-12 border-t border-subtle-border/50">
-                    <h3 className="text-sm font-sans font-bold uppercase tracking-widest mb-8 text-soft-gray">
-                        More Work
+                    <h3 className="text-sm font-sans uppercase tracking-widest mb-8">
+                        <span className="highlight-title">More Work</span>
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {projects
@@ -178,9 +190,9 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                                 <Link 
                                     key={p.id}
                                     href={`/work/${p.id}`}
-                                    className="group p-6 border border-subtle-border/50 hover:border-charcoal/30 transition-colors"
+                                    className="group p-6 border border-subtle-border/50 hover:border-charcoal/30 hover:bg-charcoal/[0.02] transition-all"
                                 >
-                                    <span className="text-xs font-sans text-soft-gray uppercase tracking-widest">
+                                    <span className="text-xs font-sans text-soft-gray uppercase tracking-widest font-medium">
                                         {p.role}
                                     </span>
                                     <h4 className="text-xl font-serif text-charcoal mt-2 group-hover:italic transition-all">

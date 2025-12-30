@@ -6,6 +6,8 @@
   --foreground-rgb: 45, 45, 45; /* #2D2D2D */
   --background-start-rgb: 249, 248, 244; /* #F9F8F4 */
   --background-end-rgb: 249, 248, 244;
+  --highlight-charcoal: rgba(45, 45, 45, 0.88);
+  --highlight-text: #F9F8F4;
 }
 
 body {
@@ -17,4 +19,116 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Hand-drawn organic highlight with gradient fade and slight tilt */
+.highlight {
+  position: relative;
+  display: inline;
+  font-weight: 600;
+  padding: 0.05em 0.35em 0.1em 0.3em;
+  white-space: nowrap;
+  isolation: isolate;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    var(--highlight-charcoal) 4%,
+    var(--highlight-charcoal) 94%,
+    transparent 100%
+  );
+  transform: rotate(-0.8deg) skewX(-1deg);
+  border-radius: 3px 8px 5px 9px;
+  z-index: -1;
+}
+
+.highlight::after {
+  content: attr(data-text);
+  position: relative;
+  z-index: 1;
+  color: var(--highlight-text);
+}
+
+/* Since we can't use attr() for content easily, use a simpler approach */
+.highlight {
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    var(--highlight-charcoal) 4%,
+    var(--highlight-charcoal) 94%,
+    transparent 100%
+  );
+  color: var(--highlight-text);
+  border-radius: 3px 8px 5px 9px;
+  transform: rotate(-0.3deg);
+  display: inline-block;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Variation: Slightly different organic shape */
+.highlight-alt {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.05em 0.35em 0.1em 0.3em;
+  white-space: nowrap;
+  background: linear-gradient(
+    95deg,
+    transparent 0%,
+    var(--highlight-charcoal) 3%,
+    var(--highlight-charcoal) 96%,
+    transparent 100%
+  );
+  color: var(--highlight-text);
+  border-radius: 6px 4px 8px 3px;
+  transform: rotate(0.4deg);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Highlight for section titles - wider, more dramatic */
+.highlight-title {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.15em 0.5em 0.2em 0.4em;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    var(--highlight-charcoal) 2%,
+    var(--highlight-charcoal) 97%,
+    transparent 100%
+  );
+  color: var(--highlight-text);
+  border-radius: 4px 10px 6px 12px;
+  transform: rotate(-0.6deg);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Metrics highlight - punchy, compact */
+.highlight-metric {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.02em 0.3em 0.08em 0.25em;
+  white-space: nowrap;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    var(--highlight-charcoal) 5%,
+    var(--highlight-charcoal) 93%,
+    transparent 100%
+  );
+  color: var(--highlight-text);
+  border-radius: 5px 3px 7px 4px;
+  transform: rotate(0.7deg);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }

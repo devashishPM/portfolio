@@ -11,11 +11,13 @@ export function Hero() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="max-w-4xl"
             >
-                <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.15] md:leading-[1.1] text-charcoal">
-                    From optimizing chemical reactors to architecting AI platforms - I&apos;ve spent
-                    a decade turning messy inputs into scalable value. Currently building the
-                    brain behind Level AI: Conversation Intelligence, Voice of Customer, agentic RAG systems, and
-                    7 Core AI Models that process millions of conversations.
+                <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.2] md:leading-[1.15] text-charcoal">
+                    From optimizing chemical reactors to architecting AI platforms — I&apos;ve spent
+                    a decade turning messy inputs into <span className="highlight">scalable value</span>. Currently{" "}
+                    <span className="highlight-alt">building the brain</span> behind Level AI: Conversation Intelligence, 
+                    Voice of Customer, agentic RAG systems, and{" "}
+                    <span className="highlight">7 Core AI Models</span> that process{" "}
+                    <span className="highlight-alt">millions of conversations</span>.
                 </p>
             </motion.div>
         </section>
