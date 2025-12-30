@@ -138,35 +138,3 @@ export const workHistory = [
     }
 ];
 
-// Selected Achievements for About Page
-export const achievements = [
-    {
-        company: "Level AI",
-        items: [
-            "Launched Voice of Customer: +14% POC-to-paid conversion across 110 accounts",
-            "70% customer adoption of Agentic RAG in 90 days",
-            "Own 7 AI models powering millions of conversations"
-        ]
-    },
-    {
-        company: "Contify",
-        items: [
-            "NPS -5 → +31 with Text-to-Boolean Search (RAG + LLM)",
-            "Built PM org from 1 → 7; hired and mentored 3 APMs",
-            "20+ integrations driving 10% retention boost"
-        ]
-    },
-    {
-        company: "Analec",
-        items: [
-            "CSAT 60% → 88% through structured customer discovery",
-            "Email personalization NPS: 20s → 60s"
-        ]
-    },
-    {
-        company: "Evalueserve",
-        items: [
-            "0→1: First customer in 3 months, 20+ in year one"
-        ]
-    }
-];
