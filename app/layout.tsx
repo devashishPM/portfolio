@@ -17,8 +17,8 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Senior AI Product Manager Portfolio",
-  description: "A high-performance portfolio with Paper & Ink aesthetic.",
+  title: "Devashish Shrivastava — Senior AI Product Manager",
+  description: "0→1 AI Product Leader. $10M+ ARR influenced. Building intelligent systems at Level AI. From chemical reactors to neural networks.",
 };
 
 export default function RootLayout({

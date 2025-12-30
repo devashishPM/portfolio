@@ -25,7 +25,7 @@ export function Header() {
                         </Link>
                     ))}
                     <span className="hidden md:inline-block font-sans text-xs md:text-sm tracking-wide opacity-60 ml-4">
-                        Senior AI PM
+                        Senior AI PM · 0→1 Builder
                     </span>
                 </nav>
             </div>
